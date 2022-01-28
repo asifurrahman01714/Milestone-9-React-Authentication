@@ -7,5 +7,5 @@
 5. Continue
 6. Web
 7. Register: give a nickname > next > next > next
-8. Console
+8. Continue To The Console
 ```
