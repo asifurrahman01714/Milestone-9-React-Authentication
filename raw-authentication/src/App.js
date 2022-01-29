@@ -35,6 +35,13 @@ function App() {
   }
   return (
     <div className="App">
+      <img src={user.photo} alt={user.name} />
+      <br />
+      {
+        user.name ? <h2 style={{fontWeight: 'bold'}}>Name: {user.name}</h2>
+        : 
+        <h2>No user signed yet !!!</h2>
+      }
       <button onClick={handleSignIn}>Sign In</button>
     </div>
   );
