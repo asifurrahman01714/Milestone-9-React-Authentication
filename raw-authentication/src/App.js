@@ -14,7 +14,7 @@ function App() {
   const handleSignIn = () => {
     signInWithPopup(auth, provider)
     .then((result) => {
-      console.log(result.user.photoURL);
+      console.log(photoURL, emai);
     })
   }
   return (
