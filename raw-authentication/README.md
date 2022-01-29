@@ -1,4 +1,4 @@
-### Create a Firebase Project
+### Step-1: Create a Firebase Project
 ```bash
 1. Go to firebase
 2. Get started
@@ -10,7 +10,7 @@
 8. Continue To The Console
 ```
 
-### Google and Email Authentication
+### Step-2: Google and Email Authentication
 ```bash
 1. Go to firebase
 2. Get started
@@ -27,13 +27,13 @@
 13. Add New Provider
 14. Enable Email Auth
 ```
-### Then
+### Step-3: Then
 ```bash
 1. FIrebase documentation
 2. Fundamentals
 3. Web
 ```
-### Copy firebase config file
+### Step-4: Copy firebase config file
 ```bash
 1. Go to your project Overview
 2. Go to Project Settings
