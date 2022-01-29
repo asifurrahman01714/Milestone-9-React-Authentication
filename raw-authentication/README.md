@@ -58,7 +58,6 @@ npm install firebase
 ```bash
 1. https://firebase.google.com/docs/auth/web/google-signin?authuser=0#web-version-9
 
-2. import { GoogleAuthProvider } from "firebase/auth";
-const provider = new GoogleAuthProvider();
+2.   const provider = new firebase.auth.GoogleAuthProvider();
 
 ```
