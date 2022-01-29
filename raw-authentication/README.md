@@ -24,4 +24,5 @@
 10. Create a new app
 11. Go to the Auth tab
 12. Add Google Auth > Enable > give support email > Save
-13. Add Email Auth
+13. Add New Provider
+14. Enable Email Auth
