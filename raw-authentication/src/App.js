@@ -19,11 +19,19 @@ function App() {
     email: '',
     photo: '',
   });
+
+  console.log(user);
   const handleSignIn = () => {
     signInWithPopup(auth, provider)
     .then((result) => {
-      const {email, photoURL} = result.user;
-      console.log(email,photoURL)
+      const {email, photoURL,displayName} = result.user;
+      const newUser = {
+        isSignedIn: true,
+        name: 'displayName',
+        email: 'email',
+        photo: 'photoURL',
+      }
+      console.log(user);
     })
   }
   return (
