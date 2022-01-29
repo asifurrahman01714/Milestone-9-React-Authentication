@@ -11,3 +11,17 @@
 ```
 
 ### Google and Email Authentication
+```bash
+1. Go to firebase
+2. Get started
+3. Create a new project
+4. Off google analytics
+5. Continue
+6. Web
+7. Register: give a nickname > next > next > next
+8. Continue To The Console
+9. Go to console
+10. Create a new app
+11. Go to the Auth tab
+12. Add Google Auth > Enable > give support email > Save
+13. Add Email Auth
