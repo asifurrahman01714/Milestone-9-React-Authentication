@@ -31,6 +31,7 @@ function App() {
         email: 'email',
         photo: 'photoURL',
       }
+      setUser(newUser);
       console.log(user);
     })
   }
