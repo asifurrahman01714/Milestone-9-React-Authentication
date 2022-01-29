@@ -61,3 +61,33 @@ npm install firebase
 2.   const provider = new firebase.auth.GoogleAuthProvider();
 
 ```
+
+### Step-8: All things in Google Sign In
+```bash
+/* Imported File */
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import { firebaseConfig } from './firebase.config';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+```
+
+```bash
+/* Initialize Firebase */
+firebase.initializeApp(firebaseConfig);
+```
+
+```bash
+/* Auth Provider */
+const provider = new GoogleAuthProvider(); 
+const auth = getAuth();
+```
+```bash
+
+/* EventHandler*/
+const handleSignIn = () => {
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      console.log(result.user.photoURL);
+    })
+  }
+```
