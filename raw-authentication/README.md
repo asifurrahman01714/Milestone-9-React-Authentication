@@ -26,3 +26,10 @@
 12. Add Google Auth > Enable > give support email > Save
 13. Add New Provider
 14. Enable Email Auth
+```
+### Then
+```bash
+1. FIrebase documentation
+2. Fundamentals
+3. Web
+```
