@@ -9,3 +9,5 @@
 7. Register: give a nickname > next > next > next
 8. Continue To The Console
 ```
+
+### Google and Email Authentication
