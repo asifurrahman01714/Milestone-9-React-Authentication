@@ -33,3 +33,10 @@
 2. Fundamentals
 3. Web
 ```
+### Copy firebase config file
+```bash
+1. Go to your project Overview
+2. Go to Project Settings
+3. Scroll down
+4. Copy the config file
+```
