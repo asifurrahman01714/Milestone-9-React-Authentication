@@ -40,3 +40,8 @@
 3. Scroll down
 4. Copy the config file
 ```
+
+### Step-5: Install firebase on your project
+```bash
+npm install firebase
+```
