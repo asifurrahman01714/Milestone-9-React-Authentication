@@ -45,3 +45,12 @@
 ```bash
 npm install firebase
 ```
+
+### Step-6: Initialize Firebase
+```bash
+1. import * as firebase from 'firebase/app';
+2. import 'firebase/auth';
+3. import { firebaseConfig } from './firebase.config';
+
+4. firebase.initializeApp(firebaseConfig);
+```
