@@ -32,17 +32,33 @@ function App() {
       setUser(newUser);
       console.log(user);
     })
+  };
+
+  const handleSignOut =() =>{
+    setUser({
+      isSignedIn: false,
+      name: '',
+      email: '',
+      photo: '',
+    })
   }
   return (
     <div className="App">
       <img src={user.photo} alt={user.name} />
       <br />
       {
-        user.name ? <h2 style={{fontWeight: 'bold'}}>Welcome, {user.name}</h2>
+        user.name ? 
+        <div>
+          <h2 style={{fontWeight: 'bold'}}>Welcome, {user.name}</h2>
+          <button onClick={handleSignOut}>Sign Out</button>
+        </div>
         : 
-        <h2>No user signed yet !!!</h2>
+        <div>
+          <h2>No user signed yet !!!</h2>
+          <button onClick={handleSignIn}>Sign In</button>
+        </div>
       }
-      <button onClick={handleSignIn}>Sign In</button>
+      
     </div>
   );
 }
