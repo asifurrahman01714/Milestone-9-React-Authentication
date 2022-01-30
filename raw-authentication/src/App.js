@@ -25,9 +25,9 @@ function App() {
       const {email, photoURL,displayName} = result.user;
       const newUser = {
         isSignedIn: true,
-        name: `${displayName}`,
-        email: `${email}`,
-        photo: `${photoURL}`,
+        name: displayName,
+        email: email,
+        photo: photoURL,
       }
       setUser(newUser);
       console.log(user);
@@ -38,7 +38,7 @@ function App() {
       <img src={user.photo} alt={user.name} />
       <br />
       {
-        user.name ? <h2 style={{fontWeight: 'bold'}}>Name: {user.name}</h2>
+        user.name ? <h2 style={{fontWeight: 'bold'}}>Welcome, {user.name}</h2>
         : 
         <h2>No user signed yet !!!</h2>
       }
