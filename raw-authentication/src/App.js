@@ -4,6 +4,8 @@ import './App.css';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
+// Importing Auth
+import { getAuth, signOut } from "firebase/auth";
 
 import { firebaseConfig } from './firebase.config';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
