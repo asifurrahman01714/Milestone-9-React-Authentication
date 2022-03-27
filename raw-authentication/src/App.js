@@ -1,27 +1,19 @@
 import './App.css';
 
 // Importing firebase services
-import * as firebase from 'firebase/app';
+import { initializeApp } from 'firebase/app';
 import 'firebase/auth';
-
 import { signOut } from "firebase/auth";
-
-import { firebaseConfig } from './firebase.config';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { firebaseConfig } from './firebase.config';
 import { useState } from 'react/cjs/react.development';
 
-// Initializing firebase App with firebase config
-// This initializing always be outside of main function
-firebase.initializeApp(firebaseConfig);
 
+const provider = new GoogleAuthProvider();
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
 
 function App() {
-  
-  // Sign in provider
-  // This provider always be inside of main function
-  const provider = new GoogleAuthProvider(); 
-  const auth = getAuth();
-  
   // Passing object in state
   const [user, setUser] = useState({
     isSignedIn: false,
