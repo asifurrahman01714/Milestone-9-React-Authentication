@@ -1,6 +1,10 @@
 import './App.css';
+
+// Importing firebase services
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+
+
 import { firebaseConfig } from './firebase.config';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useState } from 'react/cjs/react.development';
