@@ -54,6 +54,7 @@ function App() {
     <div className="App">
       <img src={user.photo} alt={user.name} />
       <br />
+      {/* Ternary operator */}
       {
         user.name ? 
         <div>
