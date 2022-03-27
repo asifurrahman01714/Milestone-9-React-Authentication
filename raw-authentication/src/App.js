@@ -10,6 +10,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useState } from 'react/cjs/react.development';
 
 // Initializing firebase App with firebase config
+// This initializing always be outside of main function
 firebase.initializeApp(firebaseConfig);
 
 
