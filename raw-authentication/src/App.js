@@ -4,8 +4,7 @@ import './App.css';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
-// Importing Auth
-import { getAuth, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 
 import { firebaseConfig } from './firebase.config';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -44,9 +43,9 @@ function App() {
       console.log(user);
     })
   };
-
+ 
   const handleSignOut =() =>{
-    firebase.auth().signOut().then(() => {
+    signOut(auth).then(() => {
       const signOutUser = {
         isSignedIn: false,
         name: '',
@@ -55,7 +54,7 @@ function App() {
       };
       setUser(signOutUser);
     }).catch((error) => {
-      console.log(error)
+      // An error happened.
     });
   }
   return (
