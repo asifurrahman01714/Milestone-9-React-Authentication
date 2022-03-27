@@ -44,12 +44,17 @@ function App() {
   };
 
   const handleSignOut =() =>{
-    setUser({
-      isSignedIn: false,
-      name: '',
-      email: '',
-      photo: '',
-    })
+    firebase.auth().signOut().then(() => {
+      const signOutUser = {
+        isSignedIn: false,
+        name: '',
+        email: '',
+        photo: '',
+      };
+      setUser(signOutUser);
+    }).catch((error) => {
+      console.log(error)
+    });
   }
   return (
     <div className="App">
