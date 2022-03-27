@@ -21,6 +21,7 @@ function App() {
   const provider = new GoogleAuthProvider(); 
   const auth = getAuth();
   
+  // Passing object in state
   const [user, setUser] = useState({
     isSignedIn: false,
     name: '',
