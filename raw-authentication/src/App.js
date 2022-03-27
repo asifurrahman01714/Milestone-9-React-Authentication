@@ -9,6 +9,7 @@ import { firebaseConfig } from './firebase.config';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useState } from 'react/cjs/react.development';
 
+// Initializing firebase App with firebase config
 firebase.initializeApp(firebaseConfig);
 
 
