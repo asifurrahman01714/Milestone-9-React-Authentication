@@ -17,6 +17,7 @@ firebase.initializeApp(firebaseConfig);
 function App() {
   
   // Sign in provider
+  // This provider always be inside of main function
   const provider = new GoogleAuthProvider(); 
   const auth = getAuth();
   
