@@ -2,7 +2,7 @@ import './App.css';
 
 // Importing firebase services
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, GoogleAuthProvider,signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { firebaseConfig } from './firebase.config';
 import { useState } from 'react/cjs/react.development';
 
@@ -34,37 +34,12 @@ function App() {
     })
   };
  
-  const handleSignOut =() =>{
-    signOut(auth).then(() => {
-      const signOutUser = {
-        isSignedIn: false,
-        name: '',
-        email: '',
-        photo: '',
-      };
-      setUser(signOutUser);
-    }).catch((error) => {
-      // An error happened.
-    });
-  }
   return (
     <div className="App">
       <img src={user.photo} alt={user.name} />
       <br />
-      {/* Ternary operator */}
-      {
-        user.name ? 
-        <div>
-          <h2 style={{fontWeight: 'bold'}}>Welcome, {user.name}</h2>
-          <button onClick={handleSignOut}>Sign Out</button>
-        </div>
-        : 
-        <div>
-          <h2>No user signed yet !!!</h2>
-          <button onClick={handleSignIn}>Sign In</button>
-        </div>
-      }
-      
+      <h2 style={{fontWeight: 'bold'}}>Welcome, {user.name}</h2>
+      <button onClick={handleSignIn}>Sign In</button>
     </div>
   );
 }
