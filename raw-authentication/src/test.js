@@ -36,10 +36,15 @@ function App() {
  
   return (
     <div className="App">
-      <img src={user.photo} alt={user.name} />
-      <br />
-      <h2 style={{fontWeight: 'bold'}}>Welcome, {user.name}</h2>
-      <button onClick={handleSignIn}>Sign In</button>
+        {
+            user.isSignedIn &&
+            <div>
+                <img src={user.photo} alt={user.name} />
+                <br />
+                <h2 style={{fontWeight: 'bold'}}>Welcome, {user.name}</h2>
+            </div>
+        }
+        <button onClick={handleSignIn}>Sign In</button>
     </div>
   );
 }

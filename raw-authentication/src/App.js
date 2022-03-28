@@ -56,7 +56,7 @@ function App() {
         user.name ? 
         <div>
           <h2 style={{fontWeight: 'bold'}}>Welcome, {user.name}</h2>
-          <button onClick={handleSignOut}>Sign Out</button>
+          <button onClick={handleSignOut}>Sign In</button>
         </div>
         : 
         <div>
