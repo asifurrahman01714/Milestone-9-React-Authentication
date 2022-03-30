@@ -69,8 +69,11 @@ function App() {
       <form action="">
         <input type="email" name="email" placeholder="Enter Your Email" id="" />
         <br />
+        <br />
         <input type="password" name="password" placeholder="Enter Your Password" id="" />
-        
+        <br />
+        <br />
+        <input type="submit" value="Submit" />
       </form>
     </div>
   );
