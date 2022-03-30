@@ -60,26 +60,42 @@ function App() {
   const handleBlur =(e) =>{
     const {name, value} = e.target;
     console.log(name, value);
+    let isFormValid;
     if(name === "name"){
-      setLogInUser({...logInUser, name: value});
+      // setLogInUser({...logInUser, name: value});
+      const newUser = {...logInUser};
+      newUser[name] = value;
+      setLogInUser(newUser);
     }
     if(name === "email"){
       const regex = /\S+@\S+\.\S+/;
-      const isEmailValid = regex.test(value);
-      console.log(isEmailValid);
-      if(isEmailValid){
-        setLogInUser({...logInUser, email: value});
-      }
+      isFormValid = regex.test(value);
+      console.log(isFormValid);
+      // if(isEmailValid){
+      //   setLogInUser({...logInUser, email: value});
+      // }
     }
     if(name === "password"){
       const regex =  /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-      const isPasswordValid = regex.test(value);
-      console.log(isPasswordValid);
-      if(isPasswordValid){
-        setLogInUser({...logInUser, password: value});
-      }
+      isFormValid = regex.test(value);
+      console.log(isFormValid);
+      // if(isPasswordValid){
+      //   setLogInUser({...logInUser, password: value});
+      // }
     }
-    console.log(logInUser);
+
+    if(isFormValid){
+      const setNewUser = {...logInUser};
+      // setLogInUser({...logInUser, [name]: value});
+      console.log(logInUser);
+      setNewUser[name] = value;
+      setLogInUser(setNewUser);
+    }
+    if(isFormValid === false){
+      const setNewUser = {...logInUser};
+      setNewUser[name] = "This is wrong";
+      setLogInUser(setNewUser);
+    }
   }
   return (
     <div className="App">
