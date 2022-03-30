@@ -18,6 +18,7 @@ function App() {
     name: '',
     email: '',
     photo: '',
+    password: ''
   });
   const handleSignIn = () => {
     signInWithPopup(auth, provider)
@@ -51,21 +52,18 @@ function App() {
   const handleSubmit = (e) => {
 
   }
-  // Now it is time to send data from the form to Google
-  const [logInUser, setLogInUser] = useState({
-    name: '',
-    email: '',
-    password: ''
-  })
+  // Now it is time to send data from the form to Googl
   const handleBlur =(e) =>{
-    const {name, value} = e.target;
+    const {name, value, placeholder} = e.target;
     console.log(name, value);
     let isFormValid;
     if(name === "name"){
       // setLogInUser({...logInUser, name: value});
-      const newUser = {...logInUser};
+      const newUser = {...user};
       newUser[name] = value;
-      setLogInUser(newUser);
+      console.log(e.target.placeholder)
+      setUser(newUser);
+
     }
     if(name === "email"){
       const regex = /\S+@\S+\.\S+/;
@@ -85,17 +83,10 @@ function App() {
     }
 
     if(isFormValid){
-      const setNewUser = {...logInUser};
-      // setLogInUser({...logInUser, [name]: value});
-      console.log(logInUser);
-      setNewUser[name] = value;
-      setLogInUser(setNewUser);
+      setUser({...user, [name]: value});
     }
     if(isFormValid === false){
-      const setNewUser = {...logInUser};
-      setNewUser[name] = "This is wrong";
-      setLogInUser(setNewUser);
-    }
+      setUser({...user, [name]: "This is wrong"});    }
   }
   return (
     <div className="App">
@@ -116,9 +107,9 @@ function App() {
       }
       
       <h1>Our Login Form</h1>
-      <h3>User Name: {logInUser.name}</h3>
-      <h3>User Email: {logInUser.email}</h3>
-      <h3>User Password: {logInUser.password}</h3>
+      <h3>User Name: {user.name}</h3>
+      <h3>User Email: {user.email}</h3>
+      <h3>User Password: {user.password}</h3>
 
       <form action={handleSubmit}>
         <input type="text" name="name" onBlur={handleBlur} placeholder="Enter Your Name" required id="" />
