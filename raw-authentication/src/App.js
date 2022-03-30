@@ -51,6 +51,12 @@ function App() {
   const handleSubmit = (e) => {
 
   }
+  // Now it is time to send data from the form to Google
+  const {logInUser, setLogInUser} = useState({
+    name: '',
+    email: '',
+    password: ''
+  })
   const handleBlur =(e) =>{
     const {name, value} = e.target;
     console.log(name, value);
@@ -84,6 +90,9 @@ function App() {
       }
       
       <h1>Our Login Form</h1>
+      <h1>User Name: {logInUser.name}</h1>
+      <h1>User Email: {logInUser.email}</h1>
+      <h1>User Password: {logInUser.password}</h1>
       <form action={handleSubmit}>
         <input type="email" name="email" onBlur={handleBlur} placeholder="Enter Your Email" id="" required/>
         <br />
