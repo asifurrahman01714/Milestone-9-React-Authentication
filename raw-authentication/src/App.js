@@ -50,7 +50,9 @@ function App() {
   }
 
   const handleSubmit = (e) => {
-
+    if(user.email && user.password){
+      console.log('Submitting');
+    }
   }
   // Now it is time to send data from the form to Googl
   const handleBlur =(e) =>{
