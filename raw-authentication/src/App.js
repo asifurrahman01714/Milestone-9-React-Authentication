@@ -57,12 +57,12 @@ function App() {
     // debugger;
     const {name, value, placeholder} = e.target;
     console.log(name, value);
-    let isFormValid;
+    let isFormValid = true;
     
-    if(name === "name"){
-      isFormValid = value.length > 0;
-      console.log(isFormValid);
-    }
+    // if(name === "name"){
+    //   isFormValid = value.length > 0;
+    //   console.log(isFormValid);
+    // }
   
     if(name === "email"){
       const regex = /\S+@\S+\.\S+/;
