@@ -65,9 +65,12 @@ function App() {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorCode, errorMessage);
+          setUser({...user, error: "Please Enter Your Valid Email and Password"});
+          console.log(user);
           // ..
         });
     }
+    setUser({...user, error:""});
     e.preventDefault();
   }
     const handleBlur =(e) =>{
@@ -132,6 +135,10 @@ function App() {
         <br />
         <input type="submit" value="Submit" />
       </form>
+      {
+        user.error ? <h2 style={{color:"red", fontWeight:"800"}}>{user.error}</h2> : 
+        <h2 style={{color:"green", fontWeight:"800"}}>You have successfully created your account</h2>
+      }
     </div>
   );
 }
