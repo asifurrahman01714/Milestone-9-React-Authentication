@@ -55,7 +55,7 @@ function App() {
     const {name, value} = e.target;
     console.log(name, value);
     if(name === "email"){
-      const regex = "/\S+@\S+\.\S+/";
+      const regex = /\S+@\S+\.\S+/;
       const isEmailValid = regex.test(value);
       console.log(isEmailValid);
     }
