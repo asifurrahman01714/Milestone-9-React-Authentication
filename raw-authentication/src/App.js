@@ -48,10 +48,17 @@ function App() {
     });
   }
 
-  const handleChange =(e) =>{
+  const handleSubmit = (e) => {
+
+  }
+  const handleBlur =(e) =>{
     const {name, value} = e.target;
-    console.log(e.target);
     console.log(name, value);
+    if(name === "email"){
+      const regex = "/\S+@\S+\.\S+/";
+      const isEmailValid = regex.test(value);
+      console.log(isEmailValid);
+    }
   }
   return (
     <div className="App">
@@ -72,11 +79,11 @@ function App() {
       }
       
       <h1>Our Login Form</h1>
-      <form action="">
-        <input type="email" name="email" onChange={handleChange} placeholder="Enter Your Email" id="" />
+      <form action={handleSubmit}>
+        <input type="email" name="email" onBlur={handleBlur} placeholder="Enter Your Email" id="" />
         <br />
         <br />
-        <input type="password" name="password" onChange={handleChange} placeholder="Enter Your Password" id="" />
+        <input type="password" name="password" onBlur={handleBlur} placeholder="Enter Your Password" id="" />
         <br />
         <br />
         <input type="submit" value="Submit" />
