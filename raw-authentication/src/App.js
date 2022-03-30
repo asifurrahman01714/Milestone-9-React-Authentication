@@ -67,14 +67,19 @@ function App() {
       const regex = /\S+@\S+\.\S+/;
       const isEmailValid = regex.test(value);
       console.log(isEmailValid);
-      setLogInUser({...logInUser, email: value});
+      if(isEmailValid){
+        setLogInUser({...logInUser, email: value});
+      }
     }
     if(name === "password"){
       const regex =  /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
       const isPasswordValid = regex.test(value);
       console.log(isPasswordValid);
-      setLogInUser({...logInUser, password: value});
+      if(isPasswordValid){
+        setLogInUser({...logInUser, password: value});
+      }
     }
+    console.log(logInUser);
   }
   return (
     <div className="App">
@@ -101,6 +106,8 @@ function App() {
 
       <form action={handleSubmit}>
         <input type="text" name="name" onBlur={handleBlur} placeholder="Enter Your Name" required id="" />
+        <br />
+        <br />
         <input type="email" name="email" onBlur={handleBlur} placeholder="Enter Your Email" id="" required/>
         <br />
         <br />
