@@ -67,6 +67,9 @@ function App() {
       
       <h1>Our Login Form</h1>
       <form action="">
+        <input type="email" name="email" placeholder="Enter Your Email" id="" />
+        <br />
+        <input type="password" name="password" placeholder="Enter Your Password" id="" />
         
       </form>
     </div>
