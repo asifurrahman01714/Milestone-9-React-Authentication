@@ -80,10 +80,10 @@ function App() {
       
       <h1>Our Login Form</h1>
       <form action={handleSubmit}>
-        <input type="email" name="email" onBlur={handleBlur} placeholder="Enter Your Email" id="" />
+        <input type="email" name="email" onBlur={handleBlur} placeholder="Enter Your Email" id="" required/>
         <br />
         <br />
-        <input type="password" name="password" onBlur={handleBlur} placeholder="Enter Your Password" id="" />
+        <input type="password" name="password" onBlur={handleBlur} placeholder="Enter Your Password" id="" required/>
         <br />
         <br />
         <input type="submit" value="Submit" />
