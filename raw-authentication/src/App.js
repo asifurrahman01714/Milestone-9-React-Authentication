@@ -58,14 +58,12 @@ function App() {
     const {name, value, placeholder} = e.target;
     console.log(name, value);
     let isFormValid;
+    
     if(name === "name"){
-      // setLogInUser({...logInUser, name: value});
-      const newUser = {...user};
-      newUser[name] = value;
-      console.log(e.target.placeholder)
-      setUser(newUser);
-
+      isFormValid = value.length > 0;
+      console.log(isFormValid);
     }
+  
     if(name === "email"){
       const regex = /\S+@\S+\.\S+/;
       isFormValid = regex.test(value);
@@ -82,12 +80,17 @@ function App() {
       //   setLogInUser({...logInUser, password: value});
       // }
     }
-
+// debugger;
     if(isFormValid){
-      setUser({...user, [name]: value});
+      // setUser({...user, [name]: value});
+      const newUser = {...user};
+      newUser[name] = value;
+      setUser(newUser);
     }
     if(isFormValid === false){
-      setUser({...user, [name]: "This is wrong"});    }
+      setUser({...user, [name]: "This is wrong"});
+    
+    }
   }
   return (
     <div className="App">
