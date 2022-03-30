@@ -59,6 +59,11 @@ function App() {
       const isEmailValid = regex.test(value);
       console.log(isEmailValid);
     }
+    if(name === "password"){
+      const regex =  /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+      const isPasswordValid = regex.test(value);
+      console.log(isPasswordValid);
+    }
   }
   return (
     <div className="App">
