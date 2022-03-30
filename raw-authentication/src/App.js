@@ -53,38 +53,23 @@ function App() {
     if(user.email && user.password){
       console.log('Submitting');
     }
+    e.preventDefault();
   }
-  // Now it is time to send data from the form to Googl
   const handleBlur =(e) =>{
-    // debugger;
     const {name, value, placeholder} = e.target;
-    console.log(name, value);
     let isFormValid = true;
-    
-    // if(name === "name"){
-    //   isFormValid = value.length > 0;
-    //   console.log(isFormValid);
-    // }
-  
+   
     if(name === "email"){
       const regex = /\S+@\S+\.\S+/;
       isFormValid = regex.test(value);
       console.log(isFormValid);
-      // if(isEmailValid){
-      //   setLogInUser({...logInUser, email: value});
-      // }
     }
     if(name === "password"){
       const regex =  /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
       isFormValid = regex.test(value);
       console.log(isFormValid);
-      // if(isPasswordValid){
-      //   setLogInUser({...logInUser, password: value});
-      // }
-    }
-// debugger;
+    
     if(isFormValid){
-      // setUser({...user, [name]: value});
       const newUser = {...user};
       newUser[name] = value;
       setUser(newUser);
