@@ -52,7 +52,7 @@ function App() {
 
   }
   // Now it is time to send data from the form to Google
-  const {logInUser, setLogInUser} = useState({
+  const [logInUser, setLogInUser] = useState({
     name: '',
     email: '',
     password: ''
@@ -60,15 +60,20 @@ function App() {
   const handleBlur =(e) =>{
     const {name, value} = e.target;
     console.log(name, value);
+    if(name === "name"){
+      setLogInUser({...logInUser, name: value});
+    }
     if(name === "email"){
       const regex = /\S+@\S+\.\S+/;
       const isEmailValid = regex.test(value);
       console.log(isEmailValid);
+      setLogInUser({...logInUser, email: value});
     }
     if(name === "password"){
       const regex =  /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
       const isPasswordValid = regex.test(value);
       console.log(isPasswordValid);
+      setLogInUser({...logInUser, password: value});
     }
   }
   return (
@@ -90,10 +95,12 @@ function App() {
       }
       
       <h1>Our Login Form</h1>
-      <h1>User Name: {logInUser.name}</h1>
-      <h1>User Email: {logInUser.email}</h1>
-      <h1>User Password: {logInUser.password}</h1>
+      <h3>User Name: {logInUser.name}</h3>
+      <h3>User Email: {logInUser.email}</h3>
+      <h3>User Password: {logInUser.password}</h3>
+
       <form action={handleSubmit}>
+        <input type="text" name="name" onBlur={handleBlur} placeholder="Enter Your Name" required id="" />
         <input type="email" name="email" onBlur={handleBlur} placeholder="Enter Your Email" id="" required/>
         <br />
         <br />
