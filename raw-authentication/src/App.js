@@ -54,6 +54,7 @@ function App() {
   }
   // Now it is time to send data from the form to Googl
   const handleBlur =(e) =>{
+    debugger;
     const {name, value, placeholder} = e.target;
     console.log(name, value);
     let isFormValid;
