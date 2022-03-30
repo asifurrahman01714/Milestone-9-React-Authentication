@@ -47,6 +47,12 @@ function App() {
       // An error happened.
     });
   }
+
+  const handleChange =(e) =>{
+    const {name, value} = e.target;
+    console.log(e.target);
+    console.log(name, value);
+  }
   return (
     <div className="App">
       <img src={user.photo} alt={user.name} />
@@ -67,10 +73,10 @@ function App() {
       
       <h1>Our Login Form</h1>
       <form action="">
-        <input type="email" name="email" placeholder="Enter Your Email" id="" />
+        <input type="email" name="email" onChange={handleChange} placeholder="Enter Your Email" id="" />
         <br />
         <br />
-        <input type="password" name="password" placeholder="Enter Your Password" id="" />
+        <input type="password" name="password" onChange={handleChange} placeholder="Enter Your Password" id="" />
         <br />
         <br />
         <input type="submit" value="Submit" />
