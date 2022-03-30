@@ -2,7 +2,7 @@ import './App.css';
 
 // Importing firebase services
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, GoogleAuthProvider,signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,signOut,createUserWithEmailAndPassword } from "firebase/auth";
 import { firebaseConfig } from './firebase.config';
 import { useState } from 'react/cjs/react.development';
 
@@ -50,8 +50,23 @@ function App() {
   }
 
   const handleSubmit = (e) => {
-    if(user.email && user.password){
+    const {email,password} = user;
+    if(email && password){
       console.log('Submitting');
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+          // ..
+        });
     }
     e.preventDefault();
   }
