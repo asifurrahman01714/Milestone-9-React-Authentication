@@ -124,6 +124,10 @@ function App() {
       <h3>User Password: {user.password}</h3>
 
       <form onSubmit={handleSubmit}>
+        <input type="checkbox" name="newUser" id="" />
+        <label htmlFor="newUser">New User</label>
+        <br />
+        <br />
         <input type="text" name="name" onBlur={handleBlur} placeholder="Enter Your Name" required id="" />
         <br />
         <br />

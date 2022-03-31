@@ -91,7 +91,6 @@ const handleSignIn = () => {
     })
   }
 ```
-Register
 
 ### handleSubmit and handleBlur
 ```bash
