@@ -100,9 +100,9 @@ function App() {
     
     }
   }
-  const {newUser, setNewUser} = useState(false)
+  const [newUser, setNewUser] = useState(false)
   const newUserCheck =()=> {
-    setNewUser(!newUser);
+    setNewUser(!newUser); // Toggle newUser
     console.log(newUser);
   }
   return (
