@@ -110,6 +110,7 @@ function App() {
     console.log(newSignUpUser);
     
   }
+  const [newUser, setNewuser] = useState(false);
   return (
     <div className="App">
       <img src={user.photo} alt={user.name} />
@@ -134,12 +135,12 @@ function App() {
       <h3>User Password: {user.password}</h3>
 
       <form onSubmit={handleSubmit}>
-        <input type="checkbox" name="newUser" onClick={newUserCheck} id="" />
+        <input type="checkbox" name="newUser" onClick={()=> setNewuser(!newUser)} id="" />
         <label htmlFor="newUser">New User</label>
         <br />
         <br />
         {
-          user.newUser && <input type="text" name="name" onBlur={handleBlur} placeholder="Enter Your Name" required id="" />
+          newUser && <input type="text" name="name" onBlur={handleBlur} placeholder="Enter Your Name" required id="" />
         }
         <br />
         <br />
