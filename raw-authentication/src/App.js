@@ -18,7 +18,8 @@ function App() {
     name: '',
     email: '',
     photo: '',
-    password: ''
+    password: '',
+    newUser: false
   });
   const handleSignIn = () => {
     signInWithPopup(auth, provider)
@@ -100,10 +101,14 @@ function App() {
     
     }
   }
-  const [newUser, setNewUser] = useState(false)
+  
   const newUserCheck =()=> {
-    setNewUser(!newUser); // Toggle newUser
-    console.log(newUser);
+    const newSignUpUser = {...user}
+    newSignUpUser.newUser = !newSignUpUser.newUser;
+    console.log(newSignUpUser.newUser);
+    setUser(newSignUpUser);
+    console.log(newSignUpUser);
+    
   }
   return (
     <div className="App">
@@ -134,7 +139,7 @@ function App() {
         <br />
         <br />
         {
-          newUser && <input type="text" name="name" onBlur={handleBlur} placeholder="Enter Your Name" required id="" />
+          user.newUser && <input type="text" name="name" onBlur={handleBlur} placeholder="Enter Your Name" required id="" />
         }
         <br />
         <br />
