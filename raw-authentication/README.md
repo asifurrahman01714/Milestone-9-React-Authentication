@@ -91,3 +91,11 @@ const handleSignIn = () => {
     })
   }
 ```
+
+### handleSubmit and handleBlur
+```bash
+The main thing is that. At first you have to validate the email and password in handleBlur.
+And pass this email and password to the useState hook of React.
+Then submit the form to handleSubmit function. That will read the email and password from the useState hook.
+After that, if the email and password remains, only then the submission will be occurred.
+```
