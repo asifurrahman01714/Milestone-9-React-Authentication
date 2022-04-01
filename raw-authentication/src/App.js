@@ -53,7 +53,8 @@ function App() {
   }
 
   const handleSubmit = (e) => {
-    const {email,password} = user;
+    const {email,password, name} = user;
+    console.log(email, password, name)
     if(newUser && email && password){
       console.log('Submitting');
       const auth = getAuth();
@@ -63,7 +64,8 @@ function App() {
           const user = userCredential.user;
           console.log(user);
           setUser({...user, error:""});
-          updateUserInfo(user.name);
+          updateUserInfo(name); // direct user.name dile hocchilona..but name property evhabe ber kore dile hocche.
+          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -95,41 +97,45 @@ function App() {
 
 
     const handleBlur =(e) =>{
-    const {name, value, placeholder} = e.target;
-    console.log(name, value);
-    let isFormValid = true;
-  
-    if(name === "email"){
-      const regex = /\S+@\S+\.\S+/;
-      isFormValid = regex.test(value);
-      console.log(isFormValid);
-    }
-    if(name === "password"){
-      const regex =  /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-      isFormValid = regex.test(value);
-      console.log(isFormValid)
-    }
-// debugger;
-    if(isFormValid){
-      // setUser({...user, [name]: value});
-      const newUser = {...user};
-      newUser[name] = value;
-      setUser(newUser);
-    }
-    if(isFormValid === false){
-      setUser({...user, [name]: "This is wrong"});
+      const {name, value} = e.target;
+      console.log(name, value);
+      let isFormValid = true;
     
-    }
+      if(name === "email"){
+        const regex = /\S+@\S+\.\S+/;
+        isFormValid = regex.test(value);
+        console.log(isFormValid);
+      }
+      if(name === "password"){
+        const regex =  /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        isFormValid = regex.test(value);
+        console.log(isFormValid)
+      }
+// debugger;
+      if(isFormValid){
+        // setUser({...user, [name]: value});
+        const newUser = {...user};
+        newUser[name] = value;
+        setUser(newUser);
+        console.log(user);
+      }
+      if(isFormValid === false){
+        setUser({...user, [name]: "This is wrong"});
+      
+      }
   }
 
   const updateUserInfo = (name) => {
     updateProfile(auth.currentUser, {
-      displayName: name, 
+      displayName: name 
     }).then(() => {
-      console.log('Submitting');
+      // Profile updated!
+      console.log('Progile Updated');
+      // ...
     }).catch((error) => {
-      console.log(error);
-    });
+      // An error occurred
+      // ...
+    });  
   }
   
   const newUserCheck =()=> {
