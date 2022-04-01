@@ -2,7 +2,7 @@ import './App.css';
 
 // Importing firebase services
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, GoogleAuthProvider,signOut,createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth,signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,signOut,createUserWithEmailAndPassword } from "firebase/auth";
 import { firebaseConfig } from './firebase.config';
 import { useState } from 'react/cjs/react.development';
 
@@ -21,6 +21,8 @@ function App() {
     password: '',
     newUser: false
   });
+  const [newUser, setNewuser] = useState(false);
+
   const handleSignIn = () => {
     signInWithPopup(auth, provider)
     .then((result) => {
@@ -52,7 +54,8 @@ function App() {
 
   const handleSubmit = (e) => {
     const {email,password} = user;
-    if(email && password){
+    setUser({...user, error:""});
+    if(newUser && email && password){
       console.log('Submitting');
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
@@ -71,9 +74,26 @@ function App() {
           // ..
         });
     }
-    setUser({...user, error:""});
+    if (!newUser && email && password) {
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+        console.log("Signed In")
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+    }
+    
     e.preventDefault();
   }
+
+
     const handleBlur =(e) =>{
     const {name, value, placeholder} = e.target;
     console.log(name, value);
@@ -110,7 +130,6 @@ function App() {
     console.log(newSignUpUser);
     
   }
-  const [newUser, setNewuser] = useState(false);
   return (
     <div className="App">
       <img src={user.photo} alt={user.name} />
@@ -150,12 +169,12 @@ function App() {
         <input type="password" name="password" onBlur={handleBlur} placeholder="Enter Your Password" id="" required/>
         <br />
         <br />
-        <input type="submit" value="Submit" />
+        <input type="submit" value={newUser ? 'Sign Up' : 'Sign In'} />
       </form>
-      {
-        user.error ? <h2 style={{color:"red", fontWeight:"800"}}>{user.error}</h2> : 
-        <h2 style={{color:"green", fontWeight:"800"}}>You have successfully created your account</h2>
-      }
+    
+    { user.error && <h2 style={{color:"red", fontWeight:"800"}}>{user.error}</h2>}
+    <h2 style={{color:"green", fontWeight:"800"}}>You have successfully {!newUser ?"Logged In in" :"created"} your account</h2>
+      
     </div>
   );
 }
