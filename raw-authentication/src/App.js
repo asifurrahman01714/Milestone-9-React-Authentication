@@ -151,49 +151,52 @@ function App() {
   }
   return (
     <div className="App">
-      <img src={user.photo} alt={user.name} />
-      <br />
-      {/* Ternary operator */}
-      {
-        user.name ? 
-        <div>
-          <h2 style={{fontWeight: 'bold'}}>Welcome, {user.name}</h2>
-          <button onClick={handleSignOut}>Sign In</button>
-        </div>
-        : 
-        <div>
-          <h2>No user signed yet !!!</h2>
-          <button onClick={handleSignIn}>Sign In</button>
-        </div>
-      }
-      
-      <h1>Our Login Form</h1>
-      <h3>User Name: {user.name}</h3>
-      <h3>User Email: {user.email}</h3>
-      <h3>User Password: {user.password}</h3>
-
-      <form onSubmit={handleSubmit}>
-        <input type="checkbox" name="newUser" onClick={()=> setNewuser(!newUser)} id="" />
-        <label htmlFor="newUser">New User</label>
+      <div style={{display:'none'}}>
+        
+        <img src={user.photo} alt={user.name} />
         <br />
-        <br />
+        {/* Ternary operator */}
         {
-          newUser && <input type="text" name="name" onBlur={handleBlur} placeholder="Enter Your Name" required id="" />
+          user.name ? 
+          <div>
+            <h2 style={{fontWeight: 'bold'}}>Welcome, {user.name}</h2>
+            <button onClick={handleSignOut}>Sign In</button>
+          </div>
+          : 
+          <div>
+            <h2>No user signed yet !!!</h2>
+            <button onClick={handleSignIn}>Sign In</button>
+          </div>
         }
-        <br />
-        <br />
-        <input type="email" name="email" onBlur={handleBlur} placeholder="Enter Your Email" id="" required/>
-        <br />
-        <br />
-        <input type="password" name="password" onBlur={handleBlur} placeholder="Enter Your Password" id="" required/>
-        <br />
-        <br />
-        <input type="submit" value={newUser ? 'Sign Up' : 'Sign In'} />
-      </form>
-    
-    { user.error && <h2 style={{color:"red", fontWeight:"800"}}>{user.error}</h2>}
-    <h2 style={{color:"green", fontWeight:"800"}}>You have successfully {!newUser ?"Logged In in" :"created"} your account</h2>
+        
+        <h1>Our Login Form</h1>
+        <h3>User Name: {user.name}</h3>
+        <h3>User Email: {user.email}</h3>
+        <h3>User Password: {user.password}</h3>
+
+        <form onSubmit={handleSubmit}>
+          <input type="checkbox" name="newUser" onClick={()=> setNewuser(!newUser)} id="" />
+          <label htmlFor="newUser">New User</label>
+          <br />
+          <br />
+          {
+            newUser && <input type="text" name="name" onBlur={handleBlur} placeholder="Enter Your Name" required id="" />
+          }
+          <br />
+          <br />
+          <input type="email" name="email" onBlur={handleBlur} placeholder="Enter Your Email" id="" required/>
+          <br />
+          <br />
+          <input type="password" name="password" onBlur={handleBlur} placeholder="Enter Your Password" id="" required/>
+          <br />
+          <br />
+          <input type="submit" value={newUser ? 'Sign Up' : 'Sign In'} />
+        </form>
       
+      { user.error && <h2 style={{color:"red", fontWeight:"800"}}>{user.error}</h2>}
+      <h2 style={{color:"green", fontWeight:"800"}}>You have successfully {!newUser ?"Logged In in" :"created"} your account</h2>
+        
+      </div>
       <div>
         <h1>Facebook Login</h1>
         <button onClick={handlefacebookLogIn}>Facebook Login</button>
