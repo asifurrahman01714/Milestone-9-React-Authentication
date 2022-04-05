@@ -146,6 +146,9 @@ function App() {
     console.log(newSignUpUser);
     
   }
+  const handlefacebookLogIn = () => {
+    console.log('facebook');
+  }
   return (
     <div className="App">
       <img src={user.photo} alt={user.name} />
@@ -191,6 +194,10 @@ function App() {
     { user.error && <h2 style={{color:"red", fontWeight:"800"}}>{user.error}</h2>}
     <h2 style={{color:"green", fontWeight:"800"}}>You have successfully {!newUser ?"Logged In in" :"created"} your account</h2>
       
+      <div>
+        <h1>Facebook Login</h1>
+        <button onClick={handlefacebookLogIn}>Facebook Login</button>
+      </div>
     </div>
   );
 }
