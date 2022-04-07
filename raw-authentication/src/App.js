@@ -2,12 +2,13 @@ import './App.css';
 
 // Importing firebase services
 import { initializeApp } from 'firebase/app';
-import { getAuth, updateProfile, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,signOut,createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, updateProfile,FacebookAuthProvider, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,signOut,createUserWithEmailAndPassword } from "firebase/auth";
 import { firebaseConfig } from './firebase.config';
 import { useState } from 'react/cjs/react.development';
 
 
 const provider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
