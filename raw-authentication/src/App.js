@@ -7,13 +7,12 @@ import { firebaseConfig } from './firebase.config';
 import { useState } from 'react/cjs/react.development';
 
 
-const provider = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-
 function App() {
-  // Passing object in state
+  const provider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
+
   const [user, setUser] = useState({
     isSignedIn: false,
     name: '',
