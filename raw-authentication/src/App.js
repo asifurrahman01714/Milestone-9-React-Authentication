@@ -148,7 +148,7 @@ function App() {
     
   }
   const handlefacebookLogIn = () => {
-    signInWithPopup(auth, provider)
+    signInWithPopup(auth, facebookProvider)
     .then((result) => {
       const user = result.user;
       const credential = FacebookAuthProvider.credentialFromResult(result);
