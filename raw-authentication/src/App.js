@@ -149,10 +149,13 @@ function App() {
   const handlefacebookLogIn = () => {
     signInWithPopup(auth, facebookProvider)
     .then((result) => {
-      const user = result.user;
+      const users = result.user;
       const credential = FacebookAuthProvider.credentialFromResult(result);
       const accessToken = credential.accessToken;
-      console.log(user);
+      console.log(users);
+
+      setUser(users)
+      console.log(user)
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -212,6 +215,8 @@ function App() {
       </div>
       <div>
         <h1>Facebook Login</h1>
+        <h2>Name: {user.displayName}</h2>
+        <h2>Email: {user.email}</h2>
         <button onClick={handlefacebookLogIn}>Facebook Login</button>
       </div>
     </div>
