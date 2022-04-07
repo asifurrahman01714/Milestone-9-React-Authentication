@@ -160,7 +160,7 @@ function App() {
       const errorMessage = error.message;
       const email = error.email;
       const credential = FacebookAuthProvider.credentialFromError(error);
-      console.log(errorCode, errorMessage,email,credential);
+      console.log(errorCode, errorMessage);
     });
   }
   return (
