@@ -166,6 +166,22 @@ function App() {
       console.log(errorCode, errorMessage);
     });
   }
+  const handleGithubSignIn = () => {
+    signInWithPopup(auth, githubProvider)
+    .then((result) => {
+      const credential = GithubAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      console.log(user);
+      console.log("signed In");
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.email;
+      const credential = GithubAuthProvider.credentialFromError(error);
+      console.log(errorCode,errorMessage)
+    });
+  }
   return (
     <div className="App">
       <div style={{display:'none'}}>
@@ -218,6 +234,7 @@ function App() {
         <h1>Facebook Login</h1>
         <h2>Name: {user.displayName}</h2>
         <h2>Email: {user.email}</h2>
+        <button onClick={handleGithubSignIn}>Github Login</button><br />
         <button onClick={handlefacebookLogIn}>Facebook Login</button>
       </div>
     </div>
